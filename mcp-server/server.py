@@ -19,6 +19,8 @@ docs_urls = {
     "langchain": "python.langchain.com/docs",
     "llama-index": "docs.llamaindex.ai/en/stable",
     "openai": "platform.openai.com/docs",
+    "mcp": "https://modelcontextprotocol.io/",
+    "huggingface": "https://huggingface.co/docs"
 }
 
 # Configure logging

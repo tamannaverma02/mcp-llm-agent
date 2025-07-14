@@ -32,6 +32,8 @@ The server exposes the following tools:
 *     `langchain` 
 *     `llama-index`
 *     `openai`  
+*     `mcp`
+*     `huggingface`
 *     (Uses Serper + web scraping under the hood)
  
 * *   **`list_supported_libraries()`**  
