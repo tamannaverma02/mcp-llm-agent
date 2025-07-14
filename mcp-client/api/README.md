@@ -3,13 +3,9 @@
 This is the client that:
 
 * *   Connects to the MCP server (via `stdio`).
-*     
 * *   Sends user queries to an LLM (OpenRouter GPT-4o).
-*     
 * *   Detects and calls tools registered on the MCP server.
-*     
 * *   Maintains conversation history and logs full interactions.
-*     
 
 * * *
 
