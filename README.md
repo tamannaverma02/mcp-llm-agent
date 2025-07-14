@@ -82,3 +82,7 @@ Create a `.env` file at the root with:
 
 `OPENROUTER_API_KEY=your-openrouter-key`
 `SERPER_API_KEY=your-serper-api-key`
+
+## UI Preview
+
+![UI](ui_img.png)
