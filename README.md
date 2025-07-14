@@ -86,3 +86,4 @@ Create a `.env` file at the root with:
 ## UI Preview
 
 ![UI](ui_img.png)
+
