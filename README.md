@@ -11,9 +11,9 @@ A modular AI agent system powered by [Model Context Protocol (MCP)](https://mode
 * *   Registers tools that LLMs can invoke dynamically. 
 * *   Tools include:
   
-*     * *   🔍 `get_docs`: Searches latest documentation for libraries like `langchain`, `openai`, and `llama-index`.   
-*     * *   🌐 `search_web`: Uses Serper API to get Google search results. 
-*     * *   🗂 `list_supported_libraries`: Lists which libraries are supported.
+*     🔍 `get_docs`: Searches latest documentation for libraries like `langchain`, `openai`, and `llama-index`.   
+*     🌐 `search_web`: Uses Serper API to get Google search results. 
+*     🗂 `list_supported_libraries`: Lists which libraries are supported.
    
 
 ### MCP Client
@@ -21,9 +21,9 @@ A modular AI agent system powered by [Model Context Protocol (MCP)](https://mode
 * *   Connects to the server over `stdio` using `mcp.client.stdio`.
 * *   Sends a user query to the LLM.
 * *   If the LLM suggests a tool call, it automatically:
-*     * *   Extracts the tool + args   
-*     * *   Invokes the tool via MCP 
-*     * *   Feeds the result back into the LLM   
+*     Extracts the tool + args   
+*     Invokes the tool via MCP 
+*     Feeds the result back into the LLM   
 * *   Supports multi-step function calling and persistent memory across tool interactions.
 
 
@@ -36,18 +36,28 @@ A modular AI agent system powered by [Model Context Protocol (MCP)](https://mode
 
 * * *
 
-## How It Works
-User Query → ┌────────────┐      ┌────────────┐
-              │ MCP Client │─ ─ ─ → │ LLM via    │
-              │ (API + LLM)│      │ OpenRouter │
-              └─────┬──────┘      └─────┬──────┘
-                    │                   │
-                    │ [Suggests tool call]
-                    │                   ▼
-              ┌─────▼──────┐      ┌────────────┐
-              │  MCP Tool  │← ─ ─ ─│ Tool Call  │
-              │   Server   │      └────────────┘
-              └────────────┘
+## How It Works (Step-by-Step)
+
+1.  **User Sends a Query**  
+    The user asks a question via API or Streamlit UI.
+
+2.  **LLM Processes the Query**  
+    The MCP client sends the query to an LLM (e.g., GPT-4o via OpenRouter).
+   
+3.  **LLM Chooses a Tool (if needed)**  
+    If the query needs external info, the LLM triggers an MCP tool.
+    
+4.  **Tool is Called via MCP Server**  
+    The client invokes the tool (like `get_docs`) hosted on the MCP server.
+    
+5.  **Tool Fetches Data**  
+   The tool performs tasks like scraping docs or searching the web.
+   
+6.  **LLM Gets the Tool Result**  
+   The tool result is passed back to the LLM to generate a response.
+
+7.  **Final Response Returned**  
+    The LLM sends a final reply to the user based on the tool output.
 
 * * *
 

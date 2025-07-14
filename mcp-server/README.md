@@ -29,10 +29,10 @@ The server exposes the following tools:
 
 * *   **`get_docs(query: str, library: str)`**  
 *     Searches relevant documentation for the given query in: 
-*     * *   `langchain` 
-*     * *   `llama-index`
-*     * *   `openai`  
-*     *     (Uses Serper + web scraping under the hood)
+*     `langchain` 
+*     `llama-index`
+*     `openai`  
+*     (Uses Serper + web scraping under the hood)
  
 * *   **`list_supported_libraries()`**  
 *     Returns a comma-separated list of all supported documentation sources.  
